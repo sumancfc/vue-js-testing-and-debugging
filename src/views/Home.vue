@@ -60,13 +60,17 @@
 
 <script setup>
 import { ref } from "vue";
+import router from "../router/index";
 const email = ref("");
 const password = ref("");
 
 const login = () => {
-  // Use the router to navigate to the "profile" page
-  // Assuming you have set up Vue Router in your project
-  router.push({ path: "profile" });
+  if (!email.value || !password.value) {
+    // Check if email or password is empty
+    alert("Please enter both email and password.");
+  } else {
+    router.push({ path: "profile" });
+  }
 };
 </script>
 
